@@ -1,0 +1,14 @@
+v0.1.0
+*Implementação basica das variaveis e alguns emementos da UI.
++Main.java
++game.java
++game.form
++player.java
+
+v0.1.1 pre-alpha
+
+*UI quase acabada só falta Board que precisa de JButton Array para ser apropriadamente implementada
+*O jogo e o UI separados em game.java e gameGUI.java respetivamente.
+
+game.java -> game.java e gameGUI.java
+game.form -> gameGUI.form
