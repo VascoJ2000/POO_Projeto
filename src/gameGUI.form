@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="game">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="gameGUI">
   <grid id="cb727" binding="gamePanel" layout-manager="CardLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="20" y="20" width="571" height="400"/>
+      <xy x="20" y="20" width="602" height="400"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -126,9 +126,6 @@
                     <item value="4x4"/>
                     <item value="5x5"/>
                     <item value="6x6"/>
-                    <item value="7x7"/>
-                    <item value="8x8"/>
-                    <item value="9x9"/>
                     <item value="random"/>
                   </model>
                 </properties>
@@ -143,7 +140,7 @@
               </component>
             </children>
           </grid>
-          <grid id="f7a8d" binding="winPanel" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="f7a8d" binding="winPanel" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -161,9 +158,6 @@
                     <item value="4"/>
                     <item value="5"/>
                     <item value="6"/>
-                    <item value="7"/>
-                    <item value="8"/>
-                    <item value="9"/>
                     <item value="random"/>
                   </model>
                 </properties>
@@ -187,7 +181,6 @@
                     <item value="1"/>
                     <item value="2"/>
                     <item value="3"/>
-                    <item value="4"/>
                     <item value="Till end"/>
                   </model>
                 </properties>
@@ -200,11 +193,32 @@
                   <text value="Score to win"/>
                 </properties>
               </component>
+              <component id="ba38b" class="javax.swing.JComboBox" binding="timerBox">
+                <constraints>
+                  <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <model>
+                    <item value="30s"/>
+                    <item value="60s"/>
+                    <item value="90s"/>
+                    <item value="120s"/>
+                  </model>
+                </properties>
+              </component>
+              <component id="f5e45" class="javax.swing.JLabel" binding="timerLabel">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Max time per round"/>
+                </properties>
+              </component>
             </children>
           </grid>
         </children>
       </grid>
-      <grid id="b9de0" binding="game3x3" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="b9de0" binding="inGamePanel" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <card name="Card2"/>
@@ -219,80 +233,78 @@
             </constraints>
             <properties/>
             <border type="none"/>
-            <children/>
+            <children>
+              <component id="d94e7" class="javax.swing.JButton" binding="board">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Button"/>
+                </properties>
+              </component>
+            </children>
           </grid>
-          <grid id="21a36" binding="gameScorePanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="21a36" binding="gameScorePanel" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
             <border type="none"/>
-            <children/>
+            <children>
+              <grid id="ff591" binding="playerTurnPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="1e9a8" class="javax.swing.JLabel" binding="playerTurnLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text value="Player 1's turn"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="379ee" binding="turnTimerPanel" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="7698b" class="javax.swing.JProgressBar" binding="timerProgressBar">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                  </component>
+                  <component id="a3dc1" class="javax.swing.JLabel" binding="timerProgressLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text value="120s"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+            </children>
           </grid>
-          <component id="74882" class="javax.swing.JButton" binding="button1" default-binding="true">
+          <component id="74882" class="javax.swing.JButton" binding="buttonCancel">
             <constraints>
               <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Button"/>
+              <text value="Cancel Match"/>
             </properties>
           </component>
         </children>
-      </grid>
-      <grid id="94152" binding="game4x4" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="0" left="0" bottom="0" right="0"/>
-        <constraints>
-          <card name="Card3"/>
-        </constraints>
-        <properties/>
-        <border type="none"/>
-        <children/>
-      </grid>
-      <grid id="ada28" binding="game5x5" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="0" left="0" bottom="0" right="0"/>
-        <constraints>
-          <card name="Card4"/>
-        </constraints>
-        <properties/>
-        <border type="none"/>
-        <children/>
-      </grid>
-      <grid id="50d72" binding="game6x6" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="0" left="0" bottom="0" right="0"/>
-        <constraints>
-          <card name="Card5"/>
-        </constraints>
-        <properties/>
-        <border type="none"/>
-        <children/>
-      </grid>
-      <grid id="8f6da" binding="game7x7" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="0" left="0" bottom="0" right="0"/>
-        <constraints>
-          <card name="Card6"/>
-        </constraints>
-        <properties/>
-        <border type="none"/>
-        <children/>
-      </grid>
-      <grid id="8cb53" binding="game8x8" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="0" left="0" bottom="0" right="0"/>
-        <constraints>
-          <card name="Card7"/>
-        </constraints>
-        <properties/>
-        <border type="none"/>
-        <children/>
-      </grid>
-      <grid id="dbb5e" binding="game9x9" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="0" left="0" bottom="0" right="0"/>
-        <constraints>
-          <card name="Card8"/>
-        </constraints>
-        <properties/>
-        <border type="none"/>
-        <children/>
       </grid>
     </children>
   </grid>

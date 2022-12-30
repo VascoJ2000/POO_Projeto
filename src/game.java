@@ -1,50 +1,17 @@
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class game {
-
     private player player1;
     private player player2;
     private int boardSize; //Tamanho do jogo
     private int score; //Nº de quadrados seguidos para marcar pontos
     private int winScore; //Nº de pontos para vencer. se -1 deixar o tabuleiro ser preenchido.
+    private int timer;
     /*tipo de jogo(gameType):
     -Normal: cada pessoa tem um turno de cada vez.
     -random turns: o proximo turno é ao calhas e decidido pela maquina.
      (só para implementar se ouver tempo)*/
     private String gameType;
-
-    private JButton startButton;
-    private JPanel preGamePanel;
-    private JPanel startPanel;
-    private JPanel gameTypePanel;
-    private JLabel gameTypeLabel;
-    private JComboBox gameTypeBox;
-    private JPanel playersPanel;
-    private JTextField player1Name;
-    private JTextField player2Name;
-    private JLabel player1Label;
-    private JLabel player2Label;
-    private JPanel boardPanel;
-    private JComboBox boardBox;
-    private JLabel boardLabel;
-    private JPanel winPanel;
-    private JComboBox scoreBox;
-    private JLabel scoreLabel;
-    private JComboBox winScoreBox;
-    private JLabel winScoreLabel;
-    private JPanel gamePanel;
-    private JPanel game3x3;
-    private JPanel game4x4;
-    private JPanel game5x5;
-    private JPanel game6x6;
-    private JPanel game7x7;
-    private JPanel game8x8;
-    private JPanel game9x9;
-    private JButton button1;
-    private JPanel gameBoardPanel;
-    private JPanel gameScorePanel;
 
     public player getPlayer1() {
         return player1;
@@ -86,6 +53,14 @@ public class game {
         this.winScore = winScore;
     }
 
+    public int getTimer() {
+        return timer;
+    }
+
+    public void setTimer(int timer) {
+        this.timer = timer;
+    }
+
     public String getGameType() {
         return gameType;
     }
@@ -94,22 +69,13 @@ public class game {
         this.gameType = gameType;
     }
 
-    public game(player player1, player player2, int boardSize, int score, int winScore, String gameType) {
+    public game(player player1, player player2, int boardSize, int score, int winScore, int timer, String gameType) {
         this.player1 = player1;
         this.player2 = player2;
         this.boardSize = boardSize;
         this.score = score;
         this.winScore = winScore;
+        this.timer = timer;
         this.gameType = gameType;
-    }
-
-    //Clicar no buttão "Start" deve criar o jogo e começar o jogo.
-    public game() {
-        startButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
     }
 }
