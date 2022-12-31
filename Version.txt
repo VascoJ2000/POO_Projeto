@@ -1,5 +1,15 @@
+/
+/ * Descrição geral do que foi feito no update
+/ + Adicionado
+/ - Removido
+/ a transformar -> transformado em
+/ // comentario
+/
+
 v0.1.0
+
 *Implementação basica das variaveis e alguns emementos da UI.
+
 +Main.java
 +game.java
 +game.form
@@ -12,3 +22,22 @@ v0.1.1 pre-alpha
 
 game.java -> game.java e gameGUI.java
 game.form -> gameGUI.form
+
+v0.1.2 pre-alpha
+
+*Melhoras na UI para ser mais facil de implementar os methodos necessarios ao jogo.
+*Tentativa de implementação dos buttões para trocar de painel "start" e "cancel match".
+*Só falta por o Jbutton Array board a funcionar para a UI estar pronta.
+
++melhorias nos comentarios e ficheiro Version.txt
++scoreRules.java
+ +hasScored //por implementar
+ +hasWon //acabado
+
+-player.currentScore e os seus metodos.
+-player.wins e os seus metodos.
+-player.bestScore e os seus metodos.
+-gameGUI.form random options.
+
+game.player1 e game.player2 -> game.players
+game.boardSize, game.score e game.winScore -> scoreRules.boardSize, scoreRules.score e scoreRules.winScore respetivamente.
