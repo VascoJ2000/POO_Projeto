@@ -4,7 +4,7 @@ import java.util.Random;
 public class gameRules {
     final private int score; //Nº de quadrados seguidos para marcar pontos
     final private int winScore; //Nº de pontos para vencer. se -1 deixar o tabuleiro ser preenchido.
-    final private Boolean randomTurns; //Tipo de jogo se true os turnos de cada jogador são ao calhas.
+    final private boolean randomTurns; //Tipo de jogo se true os turnos de cada jogador são ao calhas.
     private int turn = 0;
     private int timer; //tempo de turno para cada jogador.
 
