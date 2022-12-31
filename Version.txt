@@ -41,3 +41,7 @@ v0.1.2 pre-alpha
 
 game.player1 e game.player2 -> game.players
 game.boardSize, game.score e game.winScore -> scoreRules.boardSize, scoreRules.score e scoreRules.winScore respetivamente.
+
+v0.1.2.1 pre-alpha
+
+*Pequenas correções no ficheiro scoreRules.java
