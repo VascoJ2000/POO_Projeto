@@ -45,3 +45,19 @@ game.boardSize, game.score e game.winScore -> scoreRules.boardSize, scoreRules.s
 v0.1.2.1 pre-alpha
 
 *Pequenas correções no ficheiro scoreRules.java
+
+v0.1.3 pre-alpha
+
+*Melhorias menores da UI
+*Tabuleiro já é criado só é precisso implementado na UI
+
++board.java
+    +getBoard //acabado
++gameRules.whoseTurn
+
+-gameRules.boardSize
+
+game.gameType -> game.randomTurns
+scoreRules -> gameRules
+game.randomTurns -> gameRules.randomTurns
+game.timer -> gameRules.timer

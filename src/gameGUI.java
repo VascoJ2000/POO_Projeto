@@ -42,12 +42,12 @@ public class gameGUI {
     private JButton[][] board;
 
     //Clicar no buttão "Start" deve criar o jogo e começar o jogo.
-    //Clicar no buttão "Cancel Match" deve acabar o jogo sem ningem ganhar ou perder.
+    //Clicar no buttão "Cancel Match" deve acabar o jogo sem ninguem ganhar ou perder.
     public gameGUI() {
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                game jogo = new game(player1Name.getText(), player2Name.getText(), (heightBox.getSelectedIndex()+3)*(widthBox.getSelectedIndex()+3), scoreBox.getSelectedIndex()+3, winScoreBox.getSelectedIndex()+1, (timerBox.getSelectedIndex()+1)*30, gameTypeBox.getToolTipText());
+                game jogo = new game(player1Name.getText(), player2Name.getText(), heightBox.getSelectedIndex()+3, widthBox.getSelectedIndex()+3, scoreBox.getSelectedIndex()+3, winScoreBox.getSelectedIndex()+1, (timerBox.getSelectedIndex()+1)*30, gameTypeBox.getToolTipText());
                 CardLayout cl = (CardLayout) gamePanel.getLayout();
                 cl.show(gamePanel, "inGamePanel");
             }
