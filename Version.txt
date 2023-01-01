@@ -61,3 +61,19 @@ game.gameType -> game.randomTurns
 scoreRules -> gameRules
 game.randomTurns -> gameRules.randomTurns
 game.timer -> gameRules.timer
+
+v0.1.4 pre-alpha
+
+*UI funcional
+*Melhorias de metodos e variaveis em gameRules, gameBoard, game e gameGUI
+
++createBoard (acabado)
+
+board.java -> gameBoard.java
+
+// Esta versão tem demasiadas complicações e erros que tornão dificil a implementação dos buttões   //
+// que faram de grelha para o jogo vou colocaresta versão no Master branch primeiro e depois        //
+// copiar para um novo branch que chamarei "old".                                                   //
+// A versão do Master branch vai ser alterada e provavelmente só vai manter a UI e alguns metodos.  //
+// Vou deixar esta versão em "old" pois pode ser necessario voltar atrás para ver alguma coisa ou   //
+// porque a ideia que eu tenho agora de como fazer este projecto está errada.                       //

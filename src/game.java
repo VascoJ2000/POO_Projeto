@@ -3,7 +3,7 @@ import java.util.*;
 public class game {
     private ArrayList<player> players; //Lista neste caso sempre de tamanho 2.
     private gameRules rules;
-    private board board;
+    private gameBoard board;
 
     public ArrayList<player> getPlayers() {
         return players;
@@ -21,11 +21,11 @@ public class game {
         this.rules = rules;
     }
 
-    public board getBoard() {
+    public gameBoard getBoard() {
         return board;
     }
 
-    public void setBoard(board board) {
+    public void setBoard(gameBoard board) {
         this.board = board;
     }
 
@@ -36,6 +36,6 @@ public class game {
         players.add(p1);
         players.add(p2);
         setRules(new gameRules(score, winScore, gameType.equals("Random Turns"), timer));
-        setBoard(new board(width, height));
+        setBoard(new gameBoard(width, height));
     }
 }
