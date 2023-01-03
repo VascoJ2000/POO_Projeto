@@ -6,74 +6,14 @@
 / // comentario
 /
 
-v0.1.0
+v0.2.0 alpha
 
-*Implementação basica das variaveis e alguns emementos da UI.
-
-+Main.java
-+game.java
-+game.form
-+player.java
-
-v0.1.1 pre-alpha
-
-*UI quase acabada só falta Board que precisa de JButton Array para ser apropriadamente implementada
-*O jogo e o UI separados em game.java e gameGUI.java respetivamente.
-
-game.java -> game.java e gameGUI.java
-game.form -> gameGUI.form
-
-v0.1.2 pre-alpha
-
-*Melhoras na UI para ser mais facil de implementar os methodos necessarios ao jogo.
-*Tentativa de implementação dos buttões para trocar de painel "start" e "cancel match".
-*Só falta por o Jbutton Array board a funcionar para a UI estar pronta.
-
-+melhorias nos comentarios e ficheiro Version.txt
-+scoreRules.java
- +hasScored //por implementar
- +hasWon //acabado
-
--player.currentScore e os seus metodos.
--player.wins e os seus metodos.
--player.bestScore e os seus metodos.
--gameGUI.form random options.
-
-game.player1 e game.player2 -> game.players
-game.boardSize, game.score e game.winScore -> scoreRules.boardSize, scoreRules.score e scoreRules.winScore respetivamente.
-
-v0.1.2.1 pre-alpha
-
-*Pequenas correções no ficheiro scoreRules.java
-
-v0.1.3 pre-alpha
-
-*Melhorias menores da UI
-*Tabuleiro já é criado só é precisso implementado na UI
-
-+board.java
-    +getBoard //acabado
-+gameRules.whoseTurn
-
--gameRules.boardSize
-
-game.gameType -> game.randomTurns
-scoreRules -> gameRules
-game.randomTurns -> gameRules.randomTurns
-game.timer -> gameRules.timer
-
-v0.1.4 pre-alpha
-
-*UI funcional
-*Melhorias de metodos e variaveis em gameRules, gameBoard, game e gameGUI
-
-+createBoard (acabado)
-
-board.java -> gameBoard.java
-
-// Esta versão tem demasiadas complicações e erros que tornão dificil a implementação dos buttões   //
-// que faram de grelha para o jogo vou colocaresta versão no Master branch primeiro e depois        //
-// copiar para um novo branch que chamarei "old".                                                   //
-// A versão do Master branch vai ser alterada e provavelmente só vai manter a UI e alguns metodos.  //
-// Vou deixar esta versão em "old" pois pode ser necessario voltar atrás para ver alguma coisa ou   //
-// porque a ideia que eu tenho agora de como fazer este projecto está errada.                       //
+*Varias mudanças na implementação das class.
+    *gameBoard.java agora é a janela onde o jogo em si ocorre.
+    *gameRules.java continua a implementar as regras de jogo mas está implementado de maneira diferente.
+    *gameButtons.java é a nova class que é usada para popular a grelha que é criada em gameBoard.java
+    *player.java agora está associado a gameRules.java em vez do jogo em si.
+    *game.java agora é funciona como um psvm.
+    *gameGUI.java está pronta e funcional mas não consigo implementar por agora com gameBoard.java:
+        *dá erros quando tento gameBoardPanel.add(new gameBoard(...)).
+        *não mostra nada quando tento gameBoardPanel = new gameBoard(...).

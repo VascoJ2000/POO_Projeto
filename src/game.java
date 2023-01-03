@@ -1,41 +1,27 @@
+import javax.swing.*;
+import java.awt.*;
 import java.util.*;
 
 public class game {
-    private ArrayList<player> players; //Lista neste caso sempre de tamanho 2.
-    private gameRules rules;
-    private gameBoard board;
-
-    public ArrayList<player> getPlayers() {
-        return players;
-    }
-
-    public void setPlayers(ArrayList<player> players) {
-        this.players = players;
-    }
-
-    public gameRules getRules() {
-        return rules;
-    }
-
-    public void setRules(gameRules rules) {
-        this.rules = rules;
-    }
-
-    public gameBoard getBoard() {
-        return board;
-    }
-
-    public void setBoard(gameBoard board) {
-        this.board = board;
-    }
-
-    public game(String player1, String player2, int height, int width, int score, int winScore, int timer, String gameType) {
-        setPlayers(new ArrayList<player>());
-        player p1 = new player(player1);
-        player p2 = new player(player2);
-        players.add(p1);
-        players.add(p2);
-        setRules(new gameRules(score, winScore, gameType.equals("Random Turns"), timer));
-        setBoard(new gameBoard(width, height));
+    /*public static void main(String[] args) {
+        JFrame frame = new JFrame("Tic Tac Toe");
+        frame.setContentPane(new gameGUI().getGamePanel());
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+    }*/
+    //temp PVSM para testar a maioria das coisas aqui deveriam estar no gameGUI,
+    //estão aqui pois não consigo por a janela de jogo no gameGUI e preciso de o testar.
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Tic Tac Toe");
+        frame.setPreferredSize(new Dimension(1000, 500));
+        frame.setMinimumSize(new Dimension(1000, 500));
+        frame.setMaximumSize(new Dimension(1000, 500));
+        frame.setResizable(false);
+        gameRules rules = new gameRules("player1", "player2", 1, 1, false, 30);
+        frame.setContentPane(new gameBoard(10, 10, rules));
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
     }
 }
