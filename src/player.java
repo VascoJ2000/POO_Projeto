@@ -2,7 +2,7 @@ public class player {
 
     private String name;
     private int score = 0;
-    private final int turnNumber; //Se 1 = player1. Se 2 = player2;
+    private final int id; //Se 1 = player1. Se 2 = player2;
 
     public String getName() {
         return name;
@@ -20,12 +20,12 @@ public class player {
         this.score = score;
     }
 
-    public int getTurnNumber() {
-        return turnNumber;
+    public int getId() {
+        return id;
     }
 
-    public player(String name, int turnNumber) {
+    public player(String name, int id) {
         this.name = name;
-        this.turnNumber = turnNumber;
+        this.id = id;
     }
 }

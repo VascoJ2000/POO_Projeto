@@ -18,8 +18,11 @@ public class game {
         frame.setMinimumSize(new Dimension(1000, 500));
         frame.setMaximumSize(new Dimension(1000, 500));
         frame.setResizable(false);
-        gameRules rules = new gameRules("player1", "player2", 1, 1, false, 30);
-        frame.setContentPane(new gameBoard(10, 10, rules));
+        gameRules rules = new gameRules("player1", "player2", 3, 1, false, 30);
+        gameBoard board = new gameBoard(10, 5, rules);
+        frame.setContentPane(board);
+        rules.setBoard(board);
+        rules.changeTurn();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);

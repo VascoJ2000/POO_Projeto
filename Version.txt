@@ -17,3 +17,8 @@ v0.2.0 alpha
     *gameGUI.java está pronta e funcional mas não consigo implementar por agora com gameBoard.java:
         *dá erros quando tento gameBoardPanel.add(new gameBoard(...)).
         *não mostra nada quando tento gameBoardPanel = new gameBoard(...).
+
+v0.3.0 beta
+
+*O jogo em si já funciona completamenta.
+*Só falta colocar a janela do jogo no resto da UI.

@@ -6,6 +6,8 @@ import java.awt.event.MouseListener;
 public class gameButton extends JButton {
     private int claim; //Se 0 não tem dono. Se 1 pertence ao player1. Se 2 pertence ao player2.
     private int position;
+    private int positionX;
+    private int positionY;
     private gameRules rules;
 
     public int getClaim() {
@@ -32,14 +34,33 @@ public class gameButton extends JButton {
         this.rules = rules;
     }
 
-    public gameButton(int xy, gameRules rules) {
-        this.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 100));
+    public int getPositionX() {
+        return positionX;
+    }
+
+    public void setPositionX(int positionX) {
+        this.positionX = positionX;
+    }
+
+    public int getPositionY() {
+        return positionY;
+    }
+
+    public void setPositionY(int positionY) {
+        this.positionY = positionY;
+    }
+
+    public gameButton(int x, int y, int xy, gameRules rules) {
+        this.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 26));
+        this.positionX = x;
+        this.positionY = y;
         this.position = xy;
         this.rules = rules;
+        this.claim = 0;
         addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if(SwingUtilities.isRightMouseButton(e)) {
+                if(SwingUtilities.isLeftMouseButton(e)) {
                     click();
                 }
             }

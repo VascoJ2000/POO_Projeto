@@ -29,7 +29,7 @@ public class gameBoard extends JPanel {
     }
 
     public gameBoard(int boardWidth, int boardHeight, gameRules rules) {
-        super(new GridLayout(boardWidth, boardHeight));
+        super(new GridLayout(boardHeight, boardWidth));
         this.boardWidth = boardWidth;
         this.boardHeight = boardHeight;
         this.boardSize = boardWidth*boardHeight;
@@ -37,9 +37,11 @@ public class gameBoard extends JPanel {
     }
 
     private void createBoard(gameRules rules){
-        for(int i = 0; i<boardSize; i++){
-            buttons.add(new gameButton(i, rules));
-            add(buttons.get(i));
+        for(int i = 0; i<boardHeight; i++){
+            for(int j = 0; j<boardWidth; j++) {
+                buttons.add(new gameButton(j, i, boardWidth*i+j, rules));
+                add(buttons.get(boardWidth*i+j));
+            }
         }
     }
 }
