@@ -22,3 +22,10 @@ v0.3.0 beta
 
 *O jogo em si já funciona completamenta.
 *Só falta colocar a janela do jogo no resto da UI.
+
+v0.3.1 beta
+
+*Melhoria geral da documentação.
+*Verificação dos metodos e variaveis.
+
+-Metodos tornados irrelevantes com as mudanças mais recentes no codigo.

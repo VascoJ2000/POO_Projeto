@@ -3,9 +3,10 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class gameBoard extends JPanel {
-    final private int boardWidth; //Largura do tabuleiro de jogo
-    final private int boardHeight; //Altura do tabuleiro de jogo
-    final private int boardSize; //Area do tabuleiro de jogo
+    final private int boardWidth; //Nº de colunas.
+    final private int boardHeight; //Nº de linhas.
+    final private int boardSize; //Nº de quadrados. Usado para saber
+    //Lista usada para colocar os buttões no tabuleiro e para encontrar
     private ArrayList<gameButton> buttons = new ArrayList<gameButton>();
 
     public int getBoardWidth() {
@@ -36,6 +37,8 @@ public class gameBoard extends JPanel {
         createBoard(rules);
     }
 
+    //Cria um todos os buttões que serão usados no tabuleiro atribuindo-lhes a linha, a coluna, a posição
+    //geral no tabuleiro e as regras que vai usar.
     private void createBoard(gameRules rules){
         for(int i = 0; i<boardHeight; i++){
             for(int j = 0; j<boardWidth; j++) {

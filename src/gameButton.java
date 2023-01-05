@@ -8,7 +8,7 @@ public class gameButton extends JButton {
     private int position;
     private int positionX;
     private int positionY;
-    private gameRules rules;
+    private gameRules rules; //Necessario para chamar o metodo que decide o que acontece quando se clica no buttão.
 
     public int getClaim() {
         return claim;
@@ -57,6 +57,8 @@ public class gameButton extends JButton {
         this.position = xy;
         this.rules = rules;
         this.claim = 0;
+        //Clica do buttão só se o buttão esquerdo do rato for usado. Os metodos para a não ser mouseClicked não
+        //têm nenhuma função associada mas addMouseListener não funciona sem eles.
         addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -71,7 +73,8 @@ public class gameButton extends JButton {
             public void mouseReleased(MouseEvent e) {}
         });
     }
-
+    //Chame gameRules para verificar se o buttão ainda não pertence a ninguém, se o jogador que o clicou marcou ponto
+    //e se alguém ganhou.
     public void click(){
         rules.buttonClick(this);
     }

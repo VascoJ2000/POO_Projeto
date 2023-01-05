@@ -1,15 +1,15 @@
 import java.util.ArrayList;
 import java.util.Random;
 
-//Class para criar as regras de jogo. Metodos para ver se um jogador ganhou, se marcou ponto.
+//Contém os metodos para ver se um jogador ganhou, se marcou algum ponto. Também decide de quem é o turno.
 public class gameRules {
     final private int toScore; //Nº de quadrados seguidos para marcar pontos
-    final private int winScore; //Nº de pontos para vencer. se -1 deixar o tabuleiro ser preenchido.
-    final private boolean randomTurns; //Tipo de jogo se true os turnos de cada jogador são ao calhas.
-    private int turn = 0; //De quem é o turno.
-    private int timer; //tempo de turno para cada jogador.
+    final private int winScore; //0 = deixar o tabuleiro ser prenchido, >0 = numero de pontos para vencer.
+    final private boolean randomTurns; //true = turnos ao calhas, false = turnos normais.
+    private int turn = 0; //0 = player1, 1 = player2.
+    private int timer; //s.
     private ArrayList<player> players; //Lista neste caso sempre de tamanho 2.
-    private int usedButtons; //Nº de buttões que foram usados.
+    private int usedButtons; //Usado para verificar se todos os buttões foram usados.
     private gameBoard board;
     private int whoWon = 0; //0 = Ninguem ganhou, 1 = Player1 ganhou, 2 = Player2 ganhou.
 
@@ -76,7 +76,9 @@ public class gameRules {
         this.randomTurns = randomTurns;
         this.timer = timer;
     }
-    //Metodos que verificam se marcou ponto.
+    //Verifica dois lados opostos ao mesmo tempo e verifica se há quadrados suficientes em ambas
+    //direções que pertenção ao mesmo jogador para marcar 1 ponto.
+    //Faz isso 4 vezes para cada conjunto de direções: norte/sul, este/oeste, noreste/suldoeste e noroeste/suldeste.
     public void hasScored(gameButton button){
         int bw = board.getBoardWidth();
         int bh = board.getBoardHeight();
@@ -155,10 +157,9 @@ public class gameRules {
         players.get(turn).setScore(players.get(turn).getScore()+point);
 
     }
-    public boolean hasWon(player player){
-        return player.getScore()>=getWinScore();
-    }
-    //Metodo para decidir de quem é o turno.
+
+    //Se randomTurns for true usa a função random para decidir de quem é o turno, se não os turnos
+    //seguem normalmente (player1 seguido de player2 seguido de player1 seguido de player2...).
     public void changeTurn(){
         if(this.randomTurns){
             Random random = new Random();
@@ -168,6 +169,11 @@ public class gameRules {
         }
     }
 
+    //Quando o buttão é clicado o ID do player que clicou no buttão é usado para ver se este já foi usado
+    //e também é verificado se alguém já ganhou. Se este for o caso o buttão passa a pertencer ao jogador
+    //que o clicou e se for Player1 o texto do buttão é mudado de "" para "X" se for Player2 é mudado para
+    //"O". A seguir este verifica se o jogador marcou um ponto e assinala que mais um buttão foi usado.
+    //Por fim verifica se alguem ganhou o jogo se não muda o turno.
     public void buttonClick(gameButton button){
         int id = players.get(turn).getId();
         if(button.getClaim() == 0 && whoWon == 0){

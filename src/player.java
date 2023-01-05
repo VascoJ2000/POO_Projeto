@@ -1,7 +1,9 @@
 public class player {
 
+    //Não tem nenhuma porposito funcional apenas serve para em vez de aparecer player1 ou player2 na UI
+    //do jogo aparece um nome.
     private String name;
-    private int score = 0;
+    private int score = 0;//Usado para guardar os pontos de cada jogador ao longo do jogo.
     private final int id; //Se 1 = player1. Se 2 = player2;
 
     public String getName() {
