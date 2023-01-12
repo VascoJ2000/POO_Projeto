@@ -42,3 +42,7 @@ v1.0.0 final
 -Varios elementos da UI no .form que foram tornados obsoletos com a nova implementação.
 -timer (talvez implemente se achar que ajuda, provavelmente não)
 -board no gameRules pois já se consegue a ir buscar com panel.
+
+v.1.0.1 final
+
+*Correção de certos bugs.

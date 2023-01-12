@@ -176,15 +176,15 @@ public class gameRules {
             button.setForeground(id<2 ? Color.red : Color.blue);
             hasScored(button);
             usedButtons++;
-            if(players.get(turn).getScore()>=getWinScore()){
-                whoWon = players.get(0).getScore() > players.get(1).getScore() ? 0 : 1;
-                panel.getInfo().setText(players.get(whoWon).getName()+" won");
-                panel.getInfo().setForeground(whoWon<2 ? Color.red : Color.blue);
-                panel.getEndMatch().setText("New Game");
-            } else if (usedButtons == panel.getBoard().getBoardSize() && players.get(0).getScore() == players.get(1).getScore()) {
+            if (usedButtons == panel.getBoard().getBoardSize() && players.get(0).getScore() == players.get(1).getScore()) {
                 whoWon = -1;
                 panel.getInfo().setText("TIE");
                 panel.getInfo().setForeground(Color.green);
+                panel.getEndMatch().setText("New Game");
+            } else if(players.get(turn).getScore()>=getWinScore() || usedButtons == panel.getBoard().getBoardSize()){
+                whoWon = players.get(0).getScore() > players.get(1).getScore() ? 1 : 2;
+                panel.getInfo().setText(players.get(whoWon-1).getName()+" won");
+                panel.getInfo().setForeground(whoWon<2 ? Color.red : Color.blue);
                 panel.getEndMatch().setText("New Game");
             } else{
                 changeTurn();
