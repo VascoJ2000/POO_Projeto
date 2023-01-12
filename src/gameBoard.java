@@ -6,8 +6,7 @@ public class gameBoard extends JPanel {
     final private int boardWidth; //Nº de colunas.
     final private int boardHeight; //Nº de linhas.
     final private int boardSize; //Nº de quadrados. Usado para saber
-    //Lista usada para colocar os buttões no tabuleiro e para encontrar
-    private ArrayList<gameButton> buttons = new ArrayList<gameButton>();
+    private ArrayList<gameButton> buttons = new ArrayList<gameButton>(); //Lista usada para colocar os buttões no tabuleiro e para os encontrar.
 
     public int getBoardWidth() {
         return boardWidth;

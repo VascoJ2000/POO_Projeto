@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 public class gameGUI {
 
@@ -24,24 +26,15 @@ public class gameGUI {
     private JLabel scoreLabel;
     private JComboBox winScoreBox;
     private JLabel winScoreLabel;
-    private JPanel gamePanel;
-    private JPanel inGamePanel;
+    private JPanel CardPanel;
     private JPanel gameBoardPanel;
-    private JPanel gameScorePanel;
-    private JComboBox timerBox;
-    private JLabel timerLabel;
-    private JPanel playerTurnPanel;
-    private JPanel turnTimerPanel;
-    private JProgressBar timerProgressBar;
-    private JLabel timerProgressLabel;
-    private JLabel playerTurnLabel;
     private JButton buttonCancel;
     private JComboBox widthBox;
     private JLabel widthLabel;
     private JLabel heightLabel;
 
-    public JPanel getGamePanel() {
-        return gamePanel;
+    public JPanel getCardPanel() {
+        return CardPanel;
     }
 
     //Clicar no buttão "Start" deve criar o jogo e começar o jogo.
@@ -52,21 +45,43 @@ public class gameGUI {
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                gameRules rules = new gameRules(player1Name.getText(), player2Name.getText(), scoreBox.getSelectedIndex()+3, winScoreBox.getSelectedIndex()+1, ((String)gameTypeBox.getSelectedItem()).equals("Random Turns"), (timerBox.getSelectedIndex()+1)*30);
+                gameRules rules = new gameRules(player1Name.getText(), player2Name.getText(), scoreBox.getSelectedIndex()+3, winScoreBox.getSelectedIndex()+1, ((String)gameTypeBox.getSelectedItem()).equals("Random Turns"));
                 gameBoard board = new gameBoard(widthBox.getSelectedIndex()+3, heightBox.getSelectedIndex()+3, rules);
-                rules.setBoard(board);
-                gameBoardPanel = board;
-                gameBoardPanel.setVisible(true);
-                CardLayout cl = (CardLayout) gamePanel.getLayout();
-                cl.show(gamePanel, "inGamePanel");
-            }
-        });
-        //"Cancel Match" acaba com o jogo e muda o ecrã de volta para o de pre-jogo para deixar um novo jogo ser criado.
-        buttonCancel.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                CardLayout cl = (CardLayout) gamePanel.getLayout();
-                cl.show(gamePanel, "preGamePanel");
+                gamePanel panel = new gamePanel(board, player1Name.getText());
+                rules.setPanel(panel);
+                CardPanel.add(panel, "inGamePanel");
+                CardPanel.validate();
+                CardPanel.repaint();
+                CardLayout cl = (CardLayout) CardPanel.getLayout();
+                //Listener que é suposto acabar com o jogo e voltar para o primeiro ecrã
+                MouseListener goBack = new MouseListener() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        cl.show(CardPanel, "preGamePanel");
+                    }
+
+                    @Override
+                    public void mousePressed(MouseEvent e) {
+
+                    }
+
+                    @Override
+                    public void mouseReleased(MouseEvent e) {
+
+                    }
+
+                    @Override
+                    public void mouseEntered(MouseEvent e) {
+
+                    }
+
+                    @Override
+                    public void mouseExited(MouseEvent e) {
+
+                    }
+                };
+                panel.getEndMatch().addMouseListener(goBack);
+                cl.show(CardPanel, "inGamePanel");
             }
         });
     }

@@ -5,9 +5,9 @@ import java.awt.event.MouseListener;
 
 public class gameButton extends JButton {
     private int claim; //Se 0 não tem dono. Se 1 pertence ao player1. Se 2 pertence ao player2.
-    private int position;
-    private int positionX;
-    private int positionY;
+    private int position; //Usado para confirmar a posição no tabuleiro.
+    private int positionX; //Usado para ver se o promixo buttão existe em cima ou em baixo.
+    private int positionY; //Usado para ver se o promixo buttão existe nos lados.
     private gameRules rules; //Necessario para chamar o metodo que decide o que acontece quando se clica no buttão.
 
     public int getClaim() {
@@ -67,10 +67,18 @@ public class gameButton extends JButton {
                 }
             }
 
-            public void mouseEntered(MouseEvent e) {}
-            public void mouseExited(MouseEvent e) {}
-            public void mousePressed(MouseEvent e) {}
-            public void mouseReleased(MouseEvent e) {}
+            public void mouseEntered(MouseEvent e) {
+
+            }
+            public void mouseExited(MouseEvent e) {
+
+            }
+            public void mousePressed(MouseEvent e) {
+
+            }
+            public void mouseReleased(MouseEvent e) {
+
+            }
         });
     }
     //Chame gameRules para verificar se o buttão ainda não pertence a ninguém, se o jogador que o clicou marcou ponto

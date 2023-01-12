@@ -29,3 +29,16 @@ v0.3.1 beta
 *Verificação dos metodos e variaveis.
 
 -Metodos tornados irrelevantes com as mudanças mais recentes no codigo.
+
+v1.0.0 final
+
+*Melhorias na UI.
+*Junção do painel de jogo com o painel de prejogo.
+*Jogo finalizado.
+*Melhorias na documentação para refletir as mudanças na implementação e o estado final do projecto.
+
++gamePanel - painel para tornar mais facil a inplementação da UI necessaria para se perceber o que se passa no jogo.
+
+-Varios elementos da UI no .form que foram tornados obsoletos com a nova implementação.
+-timer (talvez implemente se achar que ajuda, provavelmente não)
+-board no gameRules pois já se consegue a ir buscar com panel.
